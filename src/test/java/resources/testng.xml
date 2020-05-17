@@ -10,4 +10,13 @@
             </class>
         </classes>
     </test>
+    <test name="Login with valid data">
+        <classes>
+            <class name="com.udemy.LoginTest">
+                <methods>
+                    <include name = "LoginWithValidData" />
+                </methods>
+            </class>
+        </classes>
+    </test>
 </suite>
