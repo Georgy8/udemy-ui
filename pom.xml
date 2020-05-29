@@ -51,7 +51,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin-version}</version>
-                <configuration>
+               <!-- <configuration>
                     <includes>
                         <include>**/*.java</include>
                     </includes>
@@ -60,16 +60,16 @@
                     </argLine>
                     <testFailureIgnore>true</testFailureIgnore>
                     <suiteXmlFiles>
-                        <suiteXmlFile>${basedir}/src/test/resources/testng.xml</suiteXmlFile>
+                        <suiteXmlFile>${basedir}/src/test/java/resources/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
-                </configuration>
-                <dependencies>
+                </configuration>-->
+<!--                <dependencies>
                     <dependency>
                         <groupId>org.aspectj</groupId>
                         <artifactId>aspectjweaver</artifactId>
                         <version>${aspectj.version}</version>
                     </dependency>
-                </dependencies>
+                </dependencies>-->
             </plugin>
         </plugins>
         <resources>

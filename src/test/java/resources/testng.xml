@@ -5,7 +5,7 @@
         <classes>
             <class name="com.udemy.RegistrationTest">
                 <methods>
-                    <include name="RegistrationWithValidData" />
+                    <include name="registrationWithValidData" />
                 </methods>
             </class>
         </classes>
@@ -14,7 +14,7 @@
         <classes>
             <class name="com.udemy.LoginTest">
                 <methods>
-                    <include name = "LoginUsingCookie" />
+                    <include name = "loginUsingCookie" />
                 </methods>
             </class>
         </classes>
@@ -23,7 +23,7 @@
         <classes>
             <class name="com.udemy.CategoriesTest">
                 <methods>
-                    <include name = "CheckListCategories" />
+                    <include name = "checkListCategories" />
                 </methods>
             </class>
         </classes>
@@ -32,7 +32,7 @@
         <classes>
             <class name="com.udemy.SearchTest">
                 <methods>
-                    <include name = "SearchTestWithValidData" />
+                    <include name = "searchTestWithValidData" />
                 </methods>
             </class>
         </classes>

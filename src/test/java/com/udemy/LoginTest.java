@@ -8,7 +8,7 @@ public class LoginTest extends TestBase {
 
 
     @Test(description = "Login with valid data")
-    public void LoginUsingCookie() {
+    public void loginUsingCookie() {
 
         homePage.openHomePage();
         headerSection.setSessionCookie(cookie);

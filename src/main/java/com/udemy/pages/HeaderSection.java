@@ -1,6 +1,5 @@
 package com.udemy.pages;
 
-import constants.HeaderSectionConst;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class HeaderSection implements HeaderSectionConst {
+public class HeaderSection {
 
     private WebDriver driver;
     private WebDriverWait wait;
