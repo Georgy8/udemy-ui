@@ -13,7 +13,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 
 import java.io.File;
-import java.sql.Timestamp;
 import java.util.Date;
 
 public class TestBase {
@@ -26,8 +25,6 @@ public class TestBase {
     HeaderSection headerSection;
     SignupPopup signupForm;
     SearchResultsPage searchResultsPage;
-
-    int timestamp = new Timestamp(System.currentTimeMillis()).getNanos();
 
     @BeforeClass(description = "Open browser")
     public void openBrowser() {
@@ -58,6 +55,6 @@ public class TestBase {
 
     @AfterMethod(description = "Close browser")
     public void closeBrowser() {
-        driver.quit();
+        //driver.quit();
     }
 }

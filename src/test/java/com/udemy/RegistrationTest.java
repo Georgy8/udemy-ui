@@ -3,6 +3,8 @@ package com.udemy;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import static com.udemy.testdata.UserData.basicUser;
+
 public class RegistrationTest extends TestBase {
 
 
@@ -11,11 +13,11 @@ public class RegistrationTest extends TestBase {
         homePage.openHomePage();
         headerSection.openSignupPopup();
         Assert.assertEquals(signupForm.getSignupPopupTitleText(), "Зарегистрируйтесь и начните обучение!");
-        signupForm.fillNameField("Georgiy")
-                .fillEmailAddresField("BLABLA" + timestamp + "@yopmail.com")
-                .fillPasswordField("Qwerty123!")
+        signupForm.fillNameField(basicUser.getName())
+                .fillEmailAddresField(basicUser.getEmail())
+                .fillPasswordField(basicUser.getPassword())
                 .submitForm();
-        Assert.assertEquals(headerSection.getUserInitial(), "G");
+        Assert.assertEquals(headerSection.getUserInitial(), basicUser.getName().substring(0,1));
 
     }
 }

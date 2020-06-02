@@ -3,7 +3,7 @@ package com.udemy;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static constants.HeaderSectionConst.CATEGORYLIST;
+import static com.udemy.constants.HeaderSectionConst.CATEGORYLIST;
 
 public class CategoriesTest extends TestBase {
 

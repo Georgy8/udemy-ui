@@ -21,16 +21,14 @@ public class HeaderSection {
         this.wait = wait;
     }
 
-    By signupPopupButtonLocator = By.xpath("//div[contains(@class,'signup')]//button");
+    By signupPopupButtonLocator = By.xpath("(//span[contains(text(),'Регистрация')])[2]"); //-//div[contains(@class,'signup')]//button
     By userAvatarLocator = By.xpath("(//div[@aria-label='Georgiy'])[1]");
     By searchFieldLocator = By.xpath("//input[@data-purpose='search-input']");
     By searchFieldCoursesLocator = By.xpath("//form[@action='/courses/search/']//input");
-    By categoryButtonLocator = By.xpath("//a[@data-purpose='browse-courses-link']");
-    By categoryMainListLocator = By.xpath("//ul[@aria-label='Категории']//following-sibling::span[@class='fx']");
-
+    By categoryButtonLocator = By.xpath("//*[contains(text(),'Категории')]");  //-//a[@data-purpose='browse-courses-link']
+    By categoryMainListLocator = By.xpath("//a[@aria-label='Мой профиль']/div"); //-//ul[@aria-label='Категории']//following-sibling::span[@class='fx']
 
     public void openSignupPopup() {
-        //открытие попапа регистрации
         wait.until(ExpectedConditions.visibilityOfElementLocated(signupPopupButtonLocator));
         WebElement signupPopupButton = driver.findElement(signupPopupButtonLocator);
         signupPopupButton.click();

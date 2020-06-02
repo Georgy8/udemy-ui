@@ -1,4 +1,4 @@
-package constants;
+package com.udemy.constants;
 
 import java.util.Arrays;
 import java.util.List;
