@@ -8,12 +8,15 @@ import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 
 import java.io.File;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TestBase {
 
@@ -35,7 +38,11 @@ public class TestBase {
                 .usingAnyFreePort()
                 .build();
 
-        driver = new ChromeDriver(chromeService);
+        ChromeOptions chromeOptions = new ChromeOptions();
+        Map<String, Object> prefs = new HashMap<>();
+        prefs.put("intl.accept_languages", "en-US");
+        chromeOptions.setExperimentalOption("prefs", prefs);
+        driver = new ChromeDriver(chromeService, chromeOptions);
 
         cookie = new Cookie.Builder("dj_session_id", "snhpy9h9ow65gkzqvdjb97n9c2g70qoq")
                 .domain("www.udemy.com")
@@ -55,6 +62,6 @@ public class TestBase {
 
     @AfterMethod(description = "Close browser")
     public void closeBrowser() {
-        //driver.quit();
+        driver.quit();
     }
 }

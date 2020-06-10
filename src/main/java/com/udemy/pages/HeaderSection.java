@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -21,12 +22,13 @@ public class HeaderSection {
         this.wait = wait;
     }
 
-    By signupPopupButtonLocator = By.xpath("(//span[contains(text(),'Регистрация')])[2]"); //-//div[contains(@class,'signup')]//button
-    By userAvatarLocator = By.xpath("(//div[@aria-label='Georgiy'])[1]");
-    By searchFieldLocator = By.xpath("//input[@data-purpose='search-input']");
+    By signupPopupButtonLocator = By.xpath("//*[@data-purpose='header' or @role='navigation']//*[starts-with(text(),'Sign')]"); //-//div[contains(@class,'signup')]//button
+    By userAvatarLocator = By.xpath("(//*[@class='user-initials' or contains(@class,'dropdown-button-avatar')])[1]");
+    By userEmailInProfileDropdownLocator = By.xpath("//*[contains(@class,'user-profile-dropdown--email') or contains(@data-purpose,'edit-profile')]");
+    By searchFieldLocator = By.xpath("//*[contains(@id,'search-form-autocomplete') or contains(@data-purpose,'search-input')]");
     By searchFieldCoursesLocator = By.xpath("//form[@action='/courses/search/']//input");
-    By categoryButtonLocator = By.xpath("//*[contains(text(),'Категории')]");  //-//a[@data-purpose='browse-courses-link']
-    By categoryMainListLocator = By.xpath("//a[@aria-label='Мой профиль']/div"); //-//ul[@aria-label='Категории']//following-sibling::span[@class='fx']
+    By categoryButtonLocator = By.xpath("//*[contains(text(),'Categories') or contains(@data-purpose,'browse-courses-link')]");  //-//a[@data-purpose='browse-courses-link']
+    By categoryMainListLocator = By.xpath("//*[contains(@class,'level-one')]//li"); //-//ul[@aria-label='Категории']//following-sibling::span[@class='fx']
 
     public void openSignupPopup() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(signupPopupButtonLocator));
@@ -34,10 +36,16 @@ public class HeaderSection {
         signupPopupButton.click();
     }
 
-    public String getUserInitial() {
+    public String getUserEmail() {
+        Actions actions = new Actions(driver);
         wait.until(ExpectedConditions.visibilityOfElementLocated(userAvatarLocator));
         WebElement userAvatar = driver.findElement(userAvatarLocator);
-        return userAvatar.getText();
+        actions.moveToElement(userAvatar).perform();
+        actions.moveToElement(userAvatar).perform();
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(userEmailInProfileDropdownLocator));
+        WebElement userEmailInProfileDropdown = driver.findElement(userEmailInProfileDropdownLocator);
+        return userEmailInProfileDropdown.getText();
     }
 
 

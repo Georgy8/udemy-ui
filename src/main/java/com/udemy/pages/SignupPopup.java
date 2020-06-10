@@ -17,7 +17,7 @@ public class SignupPopup {
         this.wait = wait;
     }
 
-    By signupPopupTitleLocator = By.xpath("//div[@class=' loginbox-v4__header loginbox-v4__header--signup']");
+    By signupPopupTitleLocator = By.xpath("//div[contains(@class,'loginbox-v4__header loginbox-v4__header--signup')]");
     By nameFieldLocator = By.xpath("//input[@id='id_fullname']");
     By emailaddressFieldLocator = By.xpath("//input[@id='email--1']");
     By passwordFieldLocator = By.xpath("//input[@id='password']");
@@ -32,20 +32,20 @@ public class SignupPopup {
         return signupPopupTitle.getText();
     }
 
-    public SignupPopup fillNameField(String name) {
+    public SignupPopup enterName(String name) {
         WebElement nameField = driver.findElement(nameFieldLocator);
         nameField.sendKeys(name);
         return this;
     }
 
-    public SignupPopup fillEmailAddresField(String string) {
+    public SignupPopup enterEmail(String string) {
         WebElement emailaddressField = driver.findElement(emailaddressFieldLocator);
         emailaddressField.sendKeys(string);
         System.out.println("Email = " + string);
         return this;
     }
 
-    public SignupPopup fillPasswordField(String password) {
+    public SignupPopup enterPassword(String password) {
         WebElement passwordField = driver.findElement(passwordFieldLocator);
         passwordField.sendKeys(password);
         return this;

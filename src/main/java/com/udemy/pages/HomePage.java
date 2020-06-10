@@ -15,7 +15,7 @@ public class HomePage {
         this.wait = wait;
     }
 
-    By searchFieldLocator = By.xpath("//input[@data-purpose='home-quick-search-box']");
+    By searchFieldLocator = By.xpath("//*[contains(text(),'What do you want to learn?') or contains(@placeholder,'What do you want to learn?')]");
 
     public void openHomePage() {
         driver.get("https://www.udemy.com/");

@@ -12,12 +12,13 @@ public class RegistrationTest extends TestBase {
     public void registrationWithValidData() {
         homePage.openHomePage();
         headerSection.openSignupPopup();
-        Assert.assertEquals(signupForm.getSignupPopupTitleText(), "Зарегистрируйтесь и начните обучение!");
-        signupForm.fillNameField(basicUser.getName())
-                .fillEmailAddresField(basicUser.getEmail())
-                .fillPasswordField(basicUser.getPassword())
+        Assert.assertEquals(signupForm.getSignupPopupTitleText(), "Sign Up and Start Learning!");
+        signupForm
+                .enterName(basicUser.getName())
+                .enterEmail(basicUser.getEmail())
+                .enterPassword(basicUser.getPassword())
                 .submitForm();
-        Assert.assertEquals(headerSection.getUserInitial(), basicUser.getName().substring(0,1));
+        Assert.assertEquals(headerSection.getUserEmail(), basicUser.getEmail());
 
     }
 }

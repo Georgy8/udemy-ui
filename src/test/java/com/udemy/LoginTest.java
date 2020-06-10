@@ -12,7 +12,7 @@ public class LoginTest extends TestBase {
 
         homePage.openHomePage();
         headerSection.setSessionCookie(cookie);
-        Assert.assertEquals(headerSection.getUserInitial(), "G");
+        Assert.assertEquals(headerSection.getUserEmail(), "BLABLA750000000@yopmail.com");
 
     }
 }

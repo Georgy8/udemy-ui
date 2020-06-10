@@ -16,7 +16,7 @@ public class SearchResultsPage {
     }
 
     By searchFieldOnPageLocator = By.xpath("//h1[@class='udlite-heading-xxl']");
-    By firstSearchedItemLocator = By.xpath("(//div[@class='course-card--main-content--3xEIw']/div)[1]");
+    By firstSearchedItemLocator = By.xpath("(//*[contains(@class,'course-card--course-title')])[1]");
 
     public String getSearchedStringResult() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(searchFieldOnPageLocator));
